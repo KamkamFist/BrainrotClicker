@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BrainrotClicker.Brainrot"
+             Title="Brainrot">
+    <VerticalStackLayout>
+        <Label x:Name="brainrots"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               >0</Label>
+        <Label x:Name="brainrotClickValue"
+       FontSize="20"
+       HorizontalTextAlignment="Center"
+       >0</Label>
+    <HorizontalStackLayout VerticalOptions="Center" >
+        <Button x:Name="Klick" Clicked="UpgClick"
+                HeightRequest="200"
+                WidthRequest="200"
+                HorizontalOptions="Center"
+                ></Button>
+
+            <VerticalStackLayout >
+                <Button x:Name="Upd1" Clicked="Upd1"
+        HeightRequest="80"
+        WidthRequest="200"
+        VerticalOptions="Center"
+        ></Button>
+                <Button x:Name="Upd2" Clicked="Upd2"
+        HeightRequest="80"
+        WidthRequest="200"
+        Margin="10"
+        VerticalOptions="Center"
+        ></Button>
+                <Button x:Name="Upd3" Clicked="Upd2"
+        HeightRequest="80"
+        WidthRequest="200"
+        VerticalOptions="Center"
+        ></Button>
+                <Button x:Name="Upd4" Clicked="Upd3"
+        HeightRequest="80"
+        WidthRequest="200"
+        Margin="10"
+        VerticalOptions="Center"
+></Button>
+            </VerticalStackLayout>        
+       
+        </HorizontalStackLayout>
+</VerticalStackLayout>
+</ContentPage>
