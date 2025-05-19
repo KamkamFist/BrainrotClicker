@@ -12,31 +12,54 @@
        FontSize="20"
        HorizontalTextAlignment="Center"
        >0</Label>
+        
     <HorizontalStackLayout VerticalOptions="Center" >
-        <Button x:Name="Klick" Clicked="UpgClick"
-                HeightRequest="200"
+            <VerticalStackLayout>
+                <Button x:Name="gora"
+                Text="Góra"
+                HeightRequest="50"
                 WidthRequest="200"
                 HorizontalOptions="Center"
-                ></Button>
+                Clicked="OnGoraClicked" />
 
+                <!-- Główny przycisk z obrazkiem -->
+                <ImageButton x:Name="KlickImage"
+               Source="tralalero.jpg" 
+                    HeightRequest="200"
+               WidthRequest="200"
+               HorizontalOptions="Center" 
+                       Clicked="Klik"/>
+
+                    <!-- Przycisk „Dół” -->
+                    <Button x:Name="dol"
+                Text="Dół"
+                HeightRequest="50"
+                WidthRequest="200"
+                HorizontalOptions="Center"
+                Clicked="OnDolClicked" />
+            </VerticalStackLayout>
+        
             <VerticalStackLayout >
-                <Button x:Name="Upd1" Clicked="Upd1"
+                
+               
+                <Button x:Name="Update1" Clicked="Upd1"
         HeightRequest="80"
         WidthRequest="200"
         VerticalOptions="Center"
+                        Text="Empty"
         ></Button>
-                <Button x:Name="Upd2" Clicked="Upd2"
+                <Button x:Name="Update2" Clicked="Upd2"
         HeightRequest="80"
         WidthRequest="200"
         Margin="10"
         VerticalOptions="Center"
         ></Button>
-                <Button x:Name="Upd3" Clicked="Upd2"
+                <Button x:Name="Update3" Clicked="Upd2"
         HeightRequest="80"
         WidthRequest="200"
         VerticalOptions="Center"
         ></Button>
-                <Button x:Name="Upd4" Clicked="Upd3"
+                <Button x:Name="Update4" Clicked="Upd3"
         HeightRequest="80"
         WidthRequest="200"
         Margin="10"
