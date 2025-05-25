@@ -9,6 +9,8 @@ public partial class Brainrot : ContentPage
     int points = 0;
     int upgValue = 1;
     public string songPath = "braun.mp3";
+    private int autoBrainrot = 0; 
+    private System.Timers.Timer timer;
 
     private string[] imagePaths = new string[]
     {
@@ -34,8 +36,9 @@ public partial class Brainrot : ContentPage
     public Brainrot()
     {
         InitializeComponent();
-        _ = LoadSong(); // uruchom asynchronicznie
-        UpdateButtonState(); // poka¿ pierwszy obrazek
+        _ = LoadSong(); 
+        UpdateButtonState();
+        StartAutoCollection();
     }
     private async Task LoadSong()
     {
@@ -68,41 +71,185 @@ public partial class Brainrot : ContentPage
     }
     private void Upd1(object sender, EventArgs e)
     {
-        if (points > 10)
+        if (points >= 10)
         {
             upgValue += 1;
             points -= 10;
-            brainrotClickValue.Text = upgValue.ToString();
+            UpdateUI();
         }
-
     }
+
     private void Upd2(object sender, EventArgs e)
     {
-        if (points > 25)
+        if (points >= 25)
         {
-            upgValue += 100;
-            points -= 10;
-            brainrotClickValue.Text = upgValue.ToString();
+            upgValue += 5;
+            points -= 25;
+            UpdateUI();
         }
     }
+
     private void Upd3(object sender, EventArgs e)
     {
-        if (points > 50)
+        if (points >= 50)
         {
-            upgValue += 100;
-            points -= 10;
-            brainrotClickValue.Text = upgValue.ToString();
+            upgValue += 10;
+            points -= 50;
+            UpdateUI();
         }
     }
+
     private void Upd4(object sender, EventArgs e)
     {
-        if (points > 1000)
+        if (points >= 1000)
         {
-            upgValue += 1;
-            points -= 10000;
-            brainrotClickValue.Text = upgValue.ToString();
+            upgValue += 100;
+            points -= 1000;
+            UpdateUI();
         }
     }
+
+    private void Upd9(object sender, EventArgs e)
+    {
+        if (points >= 5000)
+        {
+            upgValue += 500;
+            points -= 5000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd11(object sender, EventArgs e)
+    {
+        if (points >= 10000)
+        {
+            upgValue += 1000;
+            points -= 10000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd13(object sender, EventArgs e)
+    {
+        if (points >= 50000)
+        {
+            upgValue += 5000;
+            points -= 50000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd15(object sender, EventArgs e)
+    {
+        if (points >= 100000)
+        {
+            upgValue += 10000;
+            points -= 100000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd17(object sender, EventArgs e)
+    {
+        if (points >= 500000)
+        {
+            upgValue += 50000;
+            points -= 500000;
+            UpdateUI();
+        }
+    }
+
+    // Automatyczne ulepszenia
+    private void Upd5(object sender, EventArgs e)
+    {
+        if (points >= 100)
+        {
+            autoBrainrot += 1;
+            points -= 100;
+            UpdateUI();
+        }
+    }
+
+    private void Upd6(object sender, EventArgs e)
+    {
+        if (points >= 500)
+        {
+            autoBrainrot += 5;
+            points -= 500;
+            UpdateUI();
+        }
+    }
+
+    private void Upd7(object sender, EventArgs e)
+    {
+        if (points >= 1000)
+        {
+            autoBrainrot += 10;
+            points -= 1000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd8(object sender, EventArgs e)
+    {
+        if (points >= 5000)
+        {
+            autoBrainrot += 50;
+            points -= 5000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd10(object sender, EventArgs e)
+    {
+        if (points >= 10000)
+        {
+            autoBrainrot += 100;
+            points -= 10000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd12(object sender, EventArgs e)
+    {
+        if (points >= 50000)
+        {
+            autoBrainrot += 500;
+            points -= 50000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd14(object sender, EventArgs e)
+    {
+        if (points >= 100000)
+        {
+            autoBrainrot += 1000;
+            points -= 100000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd16(object sender, EventArgs e)
+    {
+        if (points >= 500000)
+        {
+            autoBrainrot += 5000;
+            points -= 500000;
+            UpdateUI();
+        }
+    }
+
+    private void Upd18(object sender, EventArgs e)
+    {
+        if (points >= 1000000)
+        {
+            autoBrainrot += 10000;
+            points -= 1000000;
+            UpdateUI();
+        }
+    }
+
     private async void UpdateButtonState()
     {
         KlickImage.Source = imagePaths[currentStateIndex];
@@ -120,6 +267,30 @@ public partial class Brainrot : ContentPage
     {
         currentStateIndex = (currentStateIndex - 1 + imagePaths.Length) % imagePaths.Length; 
         UpdateButtonState();
+    }
+    private void StartAutoCollection()
+    {
+        timer = new System.Timers.Timer(1000); 
+        timer.Elapsed += (s, e) =>
+        {
+            if (autoBrainrot > 0)
+            {
+                points += autoBrainrot;
+
+                Dispatcher.Dispatch(() =>
+                {
+                    brainrots.Text = points.ToString();
+                });
+            }
+        };
+        timer.AutoReset = true;
+        timer.Enabled = true;
+    }
+    private void UpdateUI()
+    {
+        brainrots.Text = points.ToString();
+        brainrotClickValue.Text = upgValue.ToString();
+        brainrotPerSecond.Text = $"{autoBrainrot} / sek";
     }
 }
 

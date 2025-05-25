@@ -1,72 +1,231 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BrainrotClicker.Brainrot"
-             Title="Brainrot">
-    <VerticalStackLayout>
+             Title="Brainrot"
+             BackgroundColor="#1E1E1E"
+             >
+
+    <VerticalStackLayout Padding="10" Spacing="15" VerticalOptions="FillAndExpand">
+
         <Label x:Name="brainrots"
-               FontSize="50"
+               FontSize="60"
                HorizontalTextAlignment="Center"
+               TextColor="White"
+               FontAttributes="Bold"
                >0</Label>
+
         <Label x:Name="brainrotClickValue"
-       FontSize="20"
+               FontSize="22"
+               HorizontalTextAlignment="Center"
+               TextColor="#F0A500"
+               >0</Label>
+
+        <Label x:Name="brainrotPerSecond"
+               FontSize="22"
+               HorizontalTextAlignment="Center"
+               TextColor="#F0A500"
+               Text="0 / sek" 
+               />
+        <Label x:Name="brainrotPerSecond"
+       FontSize="22"
        HorizontalTextAlignment="Center"
-       >0</Label>
+       TextColor="#F0A500"
+       Text="" 
+               Margin="60"
+       />
         
-    <HorizontalStackLayout VerticalOptions="Center" >
-            <VerticalStackLayout>
+
+        <HorizontalStackLayout VerticalOptions="CenterAndExpand" Spacing="20" HeightRequest="500">
+
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10" VerticalOptions="Center">
+
                 <Button x:Name="gora"
-                Text="Góra"
-                HeightRequest="50"
-                WidthRequest="200"
-                HorizontalOptions="Center"
-                Clicked="OnGoraClicked" />
+                        Text="Góra"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        HorizontalOptions="Center"
+                        CornerRadius="10"
+                        BackgroundColor="#333333"
+                        TextColor="White"
+                        Clicked="OnGoraClicked" />
 
                 <!-- Główny przycisk z obrazkiem -->
                 <ImageButton x:Name="KlickImage"
-               Source="tralalero.jpg" 
-                    HeightRequest="200"
-               WidthRequest="200"
-               HorizontalOptions="Center" 
-                       Clicked="Klik"/>
+                             Source="tralalero.jpg"
+                             HeightRequest="200"
+                             WidthRequest="200"
+                             HorizontalOptions="Center"
+                             BackgroundColor="#444444"
+                             CornerRadius="20"
+                             Clicked="Klik" />
 
-                    <!-- Przycisk „Dół” -->
-                    <Button x:Name="dol"
-                Text="Dół"
-                HeightRequest="50"
-                WidthRequest="200"
-                HorizontalOptions="Center"
-                Clicked="OnDolClicked" />
+                <Button x:Name="dol"
+                        Text="Dół"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        HorizontalOptions="Center"
+                        CornerRadius="10"
+                        BackgroundColor="#333333"
+                        TextColor="White"
+                        Clicked="OnDolClicked" />
+
             </VerticalStackLayout>
-        
-            <VerticalStackLayout >
-                
-               
-                <Button x:Name="Update1" Clicked="Upd1"
-        HeightRequest="80"
-        WidthRequest="200"
-        VerticalOptions="Center"
-                        Text="Empty"
-        ></Button>
-                <Button x:Name="Update2" Clicked="Upd2"
-        HeightRequest="80"
-        WidthRequest="200"
-        Margin="10"
-        VerticalOptions="Center"
-        ></Button>
-                <Button x:Name="Update3" Clicked="Upd2"
-        HeightRequest="80"
-        WidthRequest="200"
-        VerticalOptions="Center"
-        ></Button>
-                <Button x:Name="Update4" Clicked="Upd3"
-        HeightRequest="80"
-        WidthRequest="200"
-        Margin="10"
-        VerticalOptions="Center"
-></Button>
-            </VerticalStackLayout>        
-       
+
+            <!-- Sekcja z upgrade'ami w ScrollView -->
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="500" BackgroundColor="#2A2A2A" Padding="10" >
+
+                <VerticalStackLayout Spacing="12" >
+
+                    <Button x:Name="Update1" Clicked="Upd1"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#444444"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Kup +1 klik za 10 pkt" />
+
+                    <Button x:Name="Update5" Clicked="Upd5"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#556B2F"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Auto +1/s za 100 pkt" />
+
+                    <Button x:Name="Update2" Clicked="Upd2"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#444444"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Kup +5 klików za 25 pkt" />
+
+                    <Button x:Name="Update6" Clicked="Upd6"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#556B2F"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Auto +5/s za 500 pkt" />
+
+                    <Button x:Name="Update3" Clicked="Upd3"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#444444"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Kup +10 klików za 50 pkt" />
+
+                    <Button x:Name="Update7" Clicked="Upd7"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#556B2F"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Auto +10/s za 1000 pkt" />
+
+                    <Button x:Name="Update4" Clicked="Upd4"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#444444"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Kup +100 klików za 1000 pkt" />
+
+                    <Button x:Name="Update8" Clicked="Upd8"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#556B2F"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Auto +50/s za 5000 pkt" />
+
+                    <Button x:Name="Update9" Clicked="Upd9"
+                            HeightRequest="60"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#444444"
+                            TextColor="White"
+                            CornerRadius="8"
+                            Text="Kup +500 klików za 5000 pkt" />
+
+                    <Button x:Name="Update10" Clicked="Upd10"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#556B2F"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Auto +100/s za 10000 pkt" />
+
+                    <Button x:Name="Update11" Clicked="Upd11"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#444444"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Kup +1000 klików za 10000 pkt" />
+
+                    <Button x:Name="Update12" Clicked="Upd12"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#556B2F"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Auto +500/s za 50000 pkt" />
+
+                    <Button x:Name="Update13" Clicked="Upd13"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#444444"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Kup +5000 klików za 50000 pkt" />
+
+                    <Button x:Name="Update14" Clicked="Upd14"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#556B2F"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Auto +1000/s za 100000 pkt" />
+
+                    <Button x:Name="Update15" Clicked="Upd15"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#444444"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Kup +10000 klików za 100000 pkt" />
+
+                    <Button x:Name="Update16" Clicked="Upd16"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#556B2F"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Auto +5000/s za 500000 pkt" />
+
+                    <Button x:Name="Update17" Clicked="Upd17"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#444444"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Kup +50000 klików za 500000 pkt" />
+
+                    <Button x:Name="Update18" Clicked="Upd18"
+                             HeightRequest="60"
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#556B2F"
+                             TextColor="White"
+                             CornerRadius="8"
+                             Text="Auto +10000/s za 1000000 pkt" />
+
+                </VerticalStackLayout>
+
+            </ScrollView>
+
         </HorizontalStackLayout>
-</VerticalStackLayout>
+
+    </VerticalStackLayout>
+
 </ContentPage>
